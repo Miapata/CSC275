@@ -13,6 +13,9 @@ private:
 
 public:
 
+	Character();
+	Character(std::string n, int h);
+
 	void setCharacterName(std::string _name);
 
 	std::string getCharacterName();
@@ -21,6 +24,8 @@ public:
 	void setHealth(int h);
 
 	int getHealth();
+
+	void printInfo();
 
 };
 
@@ -33,6 +38,9 @@ private:
 	int baseHeight;
 
 public:
+	Zombie();
+	Zombie(bool c, int b);
+
 	void setCanAttack(bool c);
 
 	bool getCanAttack();
@@ -53,14 +61,18 @@ private:
 	int baseSpeed;
 
 public:
+
+	Player();
+	Player(bool i, int b);
+
 	void setIsDeveloper(bool i);
 
 	bool getIsDeveloper();
-		
+
 
 	void setBaseSpeed(int b);
 
 	int getBaseSpeed();
-	
+
 
 };
