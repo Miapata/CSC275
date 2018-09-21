@@ -9,12 +9,12 @@ std::string Character::getCharacterName() { // This returns the characters's nam
 
 
 void Character::setCharacterName(std::string n) { // This sets the Character's name
-	n = name;
+	name = n;
 }
 
 void Character::setHealth(int h) { // This sets the health of the Character
-	if (h > 0) {
-		h = health;
+	if (h >= 0) {
+		health = h;
 	}
 	else {
 		std::cout << "Error: Negative value not valid for health.\n\n";
@@ -26,7 +26,7 @@ int Character::getHealth() { // This gets the health of the Character
 }
 
 void Character::printInfo() {
-
+	std::cout << "Character with name " << name << " and has " << health << " health." << std::endl << std::endl;
 }
 
 Character::Character() {
@@ -47,6 +47,13 @@ void Zombie::setCanAttack(bool c) { // This is where we set the bool to say if t
 bool Zombie::getCanAttack() { // this is where we set the bool to tell if we have the ability to attack the player
 	return canAttack;
 }
+void Zombie::setCharacterName() {
+
+}
+void Zombie::setHealth(int h)
+{
+	Character::setHealth(h);
+}
 
 void Zombie::setBaseHeight(int h) { // this sets the base height
 	/// This sets the base height
@@ -56,6 +63,10 @@ void Zombie::setBaseHeight(int h) { // this sets the base height
 
 int Zombie::getBaseHeight() { // this returns the Zombie's base height
 	return baseHeight;
+}
+
+void Zombie::printInfo() {
+	Character::printInfo();
 }
 Zombie::Zombie() {
 
@@ -69,7 +80,9 @@ Zombie::Zombie(bool c, int b) {
 bool Player::getIsDeveloper() { // This returns the player's isDeveloper bool
 	return isDeveloper;
 }
-
+int Player::getBaseSpeed() { // this gets the baseSpeed int
+	return baseSpeed;
+}
 void Player::setIsDeveloper(bool i) { // this sets the isDeveloper bool
 	isDeveloper = i;
 
@@ -79,9 +92,7 @@ void Player::setBaseSpeed(int b) { // this sets the baseSpeed int
 	baseSpeed = b;
 }
 
-int Player::getBaseSpeed() { // this gets the baseSpeed int
-	return baseSpeed;
-}
+
 
 Player::Player() {
 

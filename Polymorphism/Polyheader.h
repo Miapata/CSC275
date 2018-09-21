@@ -5,27 +5,27 @@
 // the health and name
 // Also, the Player and Zombie classes derive from this class
 class Character {
-private:
-	std::string name;
-	//Health
-	int health;
+
+
 
 
 public:
-
+	std::string name;
+	//Health
+	int health;
 	Character();
 	Character(std::string n, int h);
 
-	void setCharacterName(std::string _name);
+	virtual void setCharacterName(std::string _name);
 
 	std::string getCharacterName();
 
 
-	void setHealth(int h);
+	virtual void setHealth(int h);
 
-	int getHealth();
+	virtual int getHealth();
 
-	void printInfo();
+	virtual void printInfo();
 
 };
 
@@ -45,10 +45,15 @@ public:
 
 	bool getCanAttack();
 
-
+	virtual void setHealth(int h);
 	void setBaseHeight(int h);
 
 	int getBaseHeight();
+
+	void setCharacterName(std::string _name) {
+		Character::setCharacterName(_name);
+	}
+	void printInfo();
 
 };
 
@@ -61,7 +66,7 @@ private:
 	int baseSpeed;
 
 public:
-
+	
 	Player();
 	Player(bool i, int b);
 
@@ -69,10 +74,14 @@ public:
 
 	bool getIsDeveloper();
 
-
+	
 	void setBaseSpeed(int b);
 
 	int getBaseSpeed();
+
+	void setHealth(int h) {
+		Character::setHealth(h);
+	}
 
 
 };
